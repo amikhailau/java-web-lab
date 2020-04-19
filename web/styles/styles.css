@@ -1,0 +1,29 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.page-form {
+    margin: 10px 0;
+}
+
+.page-table {
+    width: 100%;
+}
+
+.description {
+    padding: 10px;
+    width: 40%;
+    border-style: solid;
+    border-radius: 10px; 
+}
+
+form {
+    width: 250px;
+}
