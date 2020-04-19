@@ -2,7 +2,6 @@ package internal.dao.implementation;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -22,7 +21,6 @@ import internal.exception.DAOException;
  * @author TheProthean
  *
  */
-@Stateless
 public class OrderItemDAO implements OrderItemDAOInterface {
 	
 	private static Logger logger = LogManager.getLogger();

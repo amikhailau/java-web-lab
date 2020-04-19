@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/IT/Java/Rafeenko/DistributedSystems/newWeb_6_p2/ApplicationClient6/src/java/internal/dao/implementation/ClientDAO.java</file>
-            <file>file:/D:/IT/Java/Rafeenko/DistributedSystems/newWeb_6_p2/ApplicationClient6/src/java/controller/MainServlet.java</file>
+            <file>file:/D:/IT/Java/Rafeenko/DistributedSystems/newWeb_6_p2/java-web-lab/src/java/META-INF/persistence.xml</file>
+            <file>file:/D:/IT/Java/Rafeenko/DistributedSystems/newWeb_6_p2/java-web-lab/src/java/internal/PersistanceUtil.java</file>
+            <file>file:/D:/IT/Java/Rafeenko/DistributedSystems/newWeb_6_p2/java-web-lab/src/java/internal/dao/implementation/UsersDAO.java</file>
+            <file>file:/D:/IT/Java/Rafeenko/DistributedSystems/newWeb_6_p2/java-web-lab/src/java/internal/entity/Order.java</file>
         </group>
     </open-files>
 </project-private>

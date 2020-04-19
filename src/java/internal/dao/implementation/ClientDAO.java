@@ -2,9 +2,7 @@ package internal.dao.implementation;
 
 import java.util.*;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.*;
 
@@ -21,7 +19,6 @@ import internal.exception.DAOException;
  * @author TheProthean
  *
  */
-@Stateless
 public class ClientDAO implements ClientDAOInterface {
 	
     private static Logger logger = LogManager.getLogger();

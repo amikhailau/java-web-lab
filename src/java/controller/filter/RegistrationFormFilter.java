@@ -5,11 +5,13 @@
  */
 package controller.filter;
 
+import internal.PersistanceUtil;
 import internal.dao.ClientDAOInterface;
 import internal.dao.UsersDAOInterface;
+import internal.dao.implementation.ClientDAO;
+import internal.dao.implementation.UsersDAO;
 import internal.entity.Client;
 import java.io.IOException;
-import javax.ejb.EJB;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -34,20 +36,18 @@ public class RegistrationFormFilter implements Filter {
     
     private static Logger logger = LogManager.getLogger();
 
-    @EJB(mappedName = "internal.dao.UsersDAOInterface")
     private UsersDAOInterface usersDAO;
     
-    @EJB(mappedName = "internal.dao.ClientDAOInterface")
     private ClientDAOInterface clientDAO;
 
     @Override
     public void init(FilterConfig fConfig) throws ServletException {
-
+        this.clientDAO = new ClientDAO(PersistanceUtil.getEntityManager());
+        this.usersDAO = new UsersDAO(PersistanceUtil.getEntityManager());
     }
 
     @Override
     public void destroy() {
-
     }
 
     @Override

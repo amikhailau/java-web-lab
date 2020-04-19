@@ -1,6 +1,5 @@
 package internal.dao;
 
-import javax.ejb.Remote;
 import java.util.List;
 import java.util.Date;
 
@@ -11,7 +10,6 @@ import internal.exception.DAOException;
  * Interface for EJB usage.
  * @author TheProthean
  */
-@Remote
 public interface OrderDAOInterface {
 	
 	public List<Order> readOverdueOrders() throws DAOException;

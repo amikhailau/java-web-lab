@@ -1,7 +1,5 @@
 package internal.dao;
 
-import javax.ejb.Remote;
-
 import internal.entity.Client;
 import internal.exception.DAOException;
 import java.util.List;
@@ -10,7 +8,6 @@ import java.util.List;
  * Interface for EJB usage.
  * @author TheProthean
  */
-@Remote
 public interface ClientDAOInterface {
 	
 	public List<Client> readClients() throws DAOException;

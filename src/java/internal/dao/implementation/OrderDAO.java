@@ -3,9 +3,7 @@ package internal.dao.implementation;
 import java.util.Date;
 import java.util.List;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,10 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import internal.dao.OrderDAOInterface;
 import internal.entity.Client;
-import internal.entity.MenuItem;
 import internal.entity.Order_;
 import internal.entity.Order;
-import internal.entity.OrderItem;
 import internal.exception.DAOException;
 
 /**
@@ -29,7 +25,6 @@ import internal.exception.DAOException;
  * @author TheProthean
  *
  */
-@Stateless
 public class OrderDAO implements OrderDAOInterface {
 	
     private static Logger logger = LogManager.getLogger();

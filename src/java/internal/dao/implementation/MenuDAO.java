@@ -2,9 +2,7 @@ package internal.dao.implementation;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
@@ -24,7 +22,6 @@ import internal.exception.DAOException;
  * @author TheProthean
  *
  */
-@Stateless
 public class MenuDAO implements MenuDAOInterface {
 	
 	private static Logger logger = LogManager.getLogger();

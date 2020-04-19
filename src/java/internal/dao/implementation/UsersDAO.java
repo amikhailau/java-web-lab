@@ -9,9 +9,7 @@ import internal.dao.UsersDAOInterface;
 import internal.entity.User;
 import internal.entity.User_;
 import internal.exception.DAOException;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -24,7 +22,6 @@ import org.apache.logging.log4j.Logger;
  * @author TheProthean
  *
  */
-@Stateless
 public class UsersDAO implements UsersDAOInterface {
     
     private static Logger logger = LogManager.getLogger();

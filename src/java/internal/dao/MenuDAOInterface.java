@@ -1,6 +1,5 @@
 package internal.dao;
 
-import javax.ejb.Remote;
 import java.util.List;
 
 import internal.entity.MenuItem;
@@ -10,7 +9,6 @@ import internal.exception.DAOException;
  * Interface for EJB usage.
  * @author TheProthean
  */
-@Remote
 public interface MenuDAOInterface {
 	
 	public List<MenuItem> readMenu() throws DAOException;
