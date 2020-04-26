@@ -26,7 +26,7 @@ import javax.persistence.*;
 })
 @Entity(name="Order")
 @Table(name="client_order")
-public class Order implements Serializable {
+public class Order implements Serializable, Comparable<Order> {
 	@Id
 	private Long id;
 	
@@ -88,5 +88,10 @@ public class Order implements Serializable {
 				+ deliveryDeadline + ",\n paid= " + paid + "\n";
 		return description;
 	}
+        
+        @Override
+        public int compareTo(Order o) {
+            return this.getId().compareTo(o.getId());
+        }
 	
 }

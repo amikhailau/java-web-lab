@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 import org.apache.logging.log4j.LogManager;
 
 public class ClientCommand implements Command {
@@ -36,9 +41,10 @@ public class ClientCommand implements Command {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext)
             throws ServletException, IOException {
-        
         HttpSession session = request.getSession();
         User loginedUser = (User) session.getAttribute("loginedUser");
+        Locale loc = (Locale) session.getAttribute("userLocale");
+        ResourceBundle bundle = ResourceBundle.getBundle("resources.locale", loc, this.getClass().getClassLoader());
         List<Client> clients = null;
         if (loginedUser.getRole() == 0) {
             Client client = null;
@@ -49,7 +55,7 @@ public class ClientCommand implements Command {
                 return;
             }
             if (client == null) {
-                request.setAttribute("serve", "Authentication failed.");
+                request.setAttribute("serve", bundle.getString("authFailed"));
                 request.setAttribute("back", "/newWeb_6");
                 RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/view/info.jsp");
                 dispatcher.forward(request, response);

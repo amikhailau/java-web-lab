@@ -13,6 +13,8 @@ import internal.entity.User;
 import controller.utils.Utils;
 import internal.dao.UsersDAOInterface;
 import internal.exception.DAOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import org.apache.logging.log4j.LogManager;
 
 public class LoginCommand implements Command {
@@ -64,9 +66,11 @@ public class LoginCommand implements Command {
         boolean hasError = false;
         String errorString = null;
 
+        Locale loc = (Locale) request.getSession().getAttribute("userLocale");
+        ResourceBundle bundle = ResourceBundle.getBundle("resources.locale", loc, this.getClass().getClassLoader());
         if (userName == null || password == null || userName.length() < 4 || password.length() < 5) {
             hasError = true;
-            errorString = "Required correct username and password!";
+            errorString = bundle.getString("invalidPassUser");
         } else {
             try {
                 // Find the user in the DB.
@@ -77,7 +81,7 @@ public class LoginCommand implements Command {
 
             if (user == null || !user.getPassword().equals(password)) {
                 hasError = true;
-                errorString = "User name or password invalid";
+                errorString = bundle.getString("notAuthed");
             }
         }
         // If error, forward to /WEB-INF/view/login.jsp

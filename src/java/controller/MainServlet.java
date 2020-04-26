@@ -52,7 +52,8 @@ public class MainServlet extends HttpServlet {
                 new OrderCreateCommand(orderDAO, clientDAO),
                 new OrderCommand(),
                 new LoginCommand(usersDAO),
-                new RegisterCommand()};
+                new RegisterCommand(),
+                new PayOrderCommand(clientDAO, orderDAO)};
 
         for (Command c : commands) {
             this.commands.put(c.getPattern(), c);

@@ -1,9 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="ru">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="${userLocale}"/>
+<fmt:setBundle basename="resources.locale"/>
 
 <head>
   <meta charset="utf-8" />
-  <title>Интернет-магазин</title>
+  <title><fmt:message key="onlineShop"/></title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
   <link rel="stylesheet" href="styles/styles.css">
@@ -18,12 +22,7 @@
 
 <div class="page-container">
   <div class="description">
-    Система Интернет-магазин. Клиент осуществляет заказ из Меню.
-    Заказ доставляется клиенту. Клиент производит его оплату. Система отмечает, что заказ оплачен.
-    Вывести информацию обо всех заказах клиента. Вывести информацию о меню.
-    Вывести информацию о просроченных заказах.
-    Вывести информацию о заказах, которые необходимо доставить до определённого времени.
-    Сделать заказ, оплатить заказ.
+      <fmt:message key="description"/>
   </div>
 </div>
 </body>

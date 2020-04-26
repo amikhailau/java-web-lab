@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
@@ -42,8 +44,10 @@ public class OrderCreateCommand implements Command {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         User loginedUser = (User) session.getAttribute("loginedUser");
+        Locale loc = (Locale) session.getAttribute("userLocale");
+        ResourceBundle bundle = ResourceBundle.getBundle("resources.locale", loc, this.getClass().getClassLoader());
         if (loginedUser.getRole() != 0) {
-            request.setAttribute("serve", "Permission denied. Admins cannot access order creation.");
+            request.setAttribute("serve", bundle.getString("authCreateOrderError"));
             request.setAttribute("back", "/newWeb_6");
             RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/view/info.jsp");
             dispatcher.forward(request, response);

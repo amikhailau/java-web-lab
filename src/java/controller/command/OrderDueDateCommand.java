@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -42,8 +45,10 @@ public class OrderDueDateCommand implements Command {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         User loginedUser = (User) session.getAttribute("loginedUser");
+        Locale loc = (Locale) session.getAttribute("userLocale");
+        ResourceBundle bundle = ResourceBundle.getBundle("resources.locale", loc, this.getClass().getClassLoader());
         if (loginedUser.getRole() == 0) {
-            request.setAttribute("serve", "Permission denied. Client can't access total order information");
+            request.setAttribute("serve", bundle.getString("authTotalOrderError"));
             request.setAttribute("back", "/newWeb_6");
             RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/WEB-INF/view/info.jsp");
             dispatcher.forward(request, response);
@@ -61,6 +66,7 @@ public class OrderDueDateCommand implements Command {
             Logger.getLogger(OrderDueDateCommand.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
         }
+        Collections.sort(orders);
         request.setAttribute("orders", orders);
         dispatcher.forward(request, response);
     }
